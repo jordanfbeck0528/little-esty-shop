@@ -8,4 +8,8 @@ def index
     merchant = Merchant.find(params[:merchant_id])
     @item = merchant.items.find(params[:id])
   end
+
+  def edit
+    @item = Item.find(params[:id])
+  end
 end
