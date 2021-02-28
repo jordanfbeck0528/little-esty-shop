@@ -1,11 +1,3 @@
 <h1>Edit Merchant Item</h1>
 
-<%= form_with model: @item, url: merchant_item_path(@item.merchant.id, @item.id) do |form| %>
-  <%= form.label 'name' %>
-  <%= form.text_field :name %><br>
-  <%= form.label 'description' %>
-  <%= form.text_field :description %><br>
-  <%= form.label 'unit_price' %>
-  <%= form.number_field :unit_price %><br>
-  <%= form.submit 'Submit' %>
-<% end %>
+<%= render partial: 'form', locals: {path: merchant_item_path(@item.merchant_id, @item.id), method: :patch, button_text: "Submit"} %>
