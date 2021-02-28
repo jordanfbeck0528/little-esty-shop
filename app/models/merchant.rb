@@ -14,4 +14,17 @@ class Merchant < ApplicationRecord
     .order(purchases: :desc)
     .limit(5)
   end
+
+  def top_five_items
+    items
+    .joins(invoices: :transactions)
+
+    end
+
+
+  def best_day
+
+  end
+
+
 end
