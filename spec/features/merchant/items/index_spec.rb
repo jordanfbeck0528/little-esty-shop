@@ -39,5 +39,34 @@ describe 'As a merchant' do
         expect(current_path).to eq(merchant_item_path(@merchant_1.id, @item_1.id))
       end
     end
+
+    it 'Next to each item name I see a button to disable or enable that item' do
+      expect(page).to have_selector("input[id='disable-button-#{@item_1.id}-item']")
+      expect(page).to have_selector("input[id='disable-button-#{@item_2.id}-item']")
+    end
+
+    describe 'When I click this button' do
+      before :each do
+        within ".merchant-item-#{@item_1.id}" do
+          click_on 'Disable'
+        end
+      end
+
+      it 'Then I am redirected back to the items index' do
+        expect(current_path).to eq(merchant_items_path(@merchant_1.id))
+      end
+
+      it 'Then I see that the items status has changed' do
+        within ".merchant-item-#{@item_1.id}" do
+          expect(page).to have_content("Status: Disabled")
+          expect(page).to have_button("Enable")
+
+          click_on 'Enable'
+
+          expect(page).to have_content("Status: Enabled")
+          expect(page).to have_button("Disable")
+        end
+      end
+    end
   end
 end
