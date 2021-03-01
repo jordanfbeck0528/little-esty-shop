@@ -29,9 +29,10 @@
   </ul>
 </section>
 
-<section class="item-top-five">
-  <h1>Five Most Popular Items</h1>
+<section id="top_five_items">
+  <h3>Top Five Items </h3>
   <% @merchant.top_five_items.each do |item| %>
-    <li><%=link_to item.name, merchant_items_path(@merchant.id) %> $<%= item.highest_in_revenue %></li>
-  <% end%>
+    <li><%= link_to "#{item.name}", merchant_item_path(@merchant, item)  %> -
+      $<%= item.total_revenue %> in sales</li>
+  <% end %>
 </section>
