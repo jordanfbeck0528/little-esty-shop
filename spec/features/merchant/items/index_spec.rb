@@ -75,8 +75,24 @@ describe 'As a merchant' do
 
 
       expect(current_path).to eq(merchant_items_path(@merchant_1))
-      expect(page).to have_content('New Item')
       expect(page).to have_content("Disabled Items")
+      expect(page).to have_content('New Item')
     end
+
+      visit merchant_items_path(all_birds.id)
+
+      it "shows the top 5 most popular items by total revenue" do
+        visit merchant_items_path(@merchant_1.id)
+
+          within("#top_5") do
+            expect(@item_1.name).to appear_before(@item_2.name)
+            expect(@item_2.name).to appear_before(@item_3.name)
+            expect(@item_3.name).to appear_before(@item_8.name)
+            expect(@item_8.name).to appear_before(@item_4.name)
+
+            expect(page).to have_no_content(@item_7.name)
+          end
+        end
+
   end
 end

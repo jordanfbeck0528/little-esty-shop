@@ -1,9 +1,5 @@
 <h2><%= @merchant.name %></h3>
 
-<hr>
-<h3>My Items</h3>
-
-<%= link_to 'New Item', new_merchant_item_path(@merchant) %>
 
 <section id="items-enabled">
   <h3>Enabled Items</h3>
@@ -27,11 +23,4 @@
     </li>
   <% end %>
   </ul>
-</section>
-
-<section class="item-top-five">
-  <h1>Five Most Popular Items</h1>
-  <% @merchant.top_five_items.each do |item| %>
-    <li><%=link_to item.name, merchant_items_path(@merchant.id) %> $<%= item.highest_in_revenue %></li>
-  <% end%>
 </section>

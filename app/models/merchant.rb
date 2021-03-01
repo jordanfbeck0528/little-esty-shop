@@ -17,14 +17,18 @@ class Merchant < ApplicationRecord
 
   def top_five_items
     items
-    .joins(invoices: :transactions)
-
-    end
-
-
-  def best_day
-
+    .joins(transactions: :invoices)
+    .select('items.*, sum(invoice_items.quantity * invoice_items.unit_price) AS highest__revenue')
+    .where('transactions.result = ?', true)
+    .group('item.id')
+    .order('highest_revenue DESC')
+    .limit(5)
   end
+
+  # 
+  # def best_day
+  #
+  # end
 
 
 end
