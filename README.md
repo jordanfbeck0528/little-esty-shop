@@ -36,6 +36,37 @@ This project requires Ruby 2.5.3.
 1. [User Stories](./doc/user_stories.md)
 1. [Extensions](./doc/extensions.md)
 
+## Live App
+[Link to live app. deployment](https://guarded-oasis-12029.herokuapp.com/)
+
+## Database Schema
+
+## Schema
+![alt text](https://files.slack.com/files-pri/T029P2S9M-F01Q49G5BNF/schema.png)
+
 ## Evaluation
 
 At the end of the project, you will be assessed based on [this Rubric](./doc/rubric.md)
+
+## Technologies Used
+
+- Atom
+- Git
+- GitHub
+- GitHub Projects
+- Ruby
+- Rails
+- RSpec
+- SimpleCov
+- Slack
+- Zoom
+- Orderly
+- Postico
+
+
+## Contributors
+
+- [Jordan Beck](https://github.com/jordanfbeck0528)
+- [Arika Blenker](https://github.com/arikalea)
+- [Jake Arellano](https://github.com/jakejakearell)
+- [Brisa Garcia](https://github.com/brisag)
